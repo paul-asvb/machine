@@ -104,3 +104,7 @@ fi
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# deno
+export DENO_INSTALL="/home/letis/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
