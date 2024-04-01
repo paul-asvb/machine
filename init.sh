@@ -40,3 +40,5 @@ git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.config/zsh/ohm
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git  $HOME/.config/zsh/ohmyzsh/plugins/zsh-syntax-highlighting
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git  $HOME/.config/zsh/ohmyzsh/plugins/fast-syntax-highlighting
 git clone https://github.com/marlonrichert/zsh-autocomplete.git  $HOME/.config/zsh/ohmyzsh/plugins/zsh-autocomplete
+
+curl https://pyenv.run | bash
