@@ -38,5 +38,5 @@ yay fzf alacritty codium
 
 git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.config/zsh/ohmyzsh/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git  $HOME/.config/zsh/ohmyzsh/plugins/zsh-syntax-highlighting
-git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git  $HOME/.config/zsh/ohmyzsh/plugins/plugins/fast-syntax-highlighting
-git clone https://github.com/marlonrichert/zsh-autocomplete.git  $HOME/.config/zsh/ohmyzsh/plugins/plugins/zsh-autocomplete
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git  $HOME/.config/zsh/ohmyzsh/plugins/fast-syntax-highlighting
+git clone https://github.com/marlonrichert/zsh-autocomplete.git  $HOME/.config/zsh/ohmyzsh/plugins/zsh-autocomplete
