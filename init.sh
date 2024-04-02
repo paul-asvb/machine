@@ -42,3 +42,5 @@ git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git  $HO
 git clone https://github.com/marlonrichert/zsh-autocomplete.git  $HOME/.config/zsh/ohmyzsh/plugins/zsh-autocomplete
 
 curl https://pyenv.run | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
