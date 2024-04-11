@@ -38,4 +38,4 @@ esac
 
 # zoxide
 export PATH="$HOME/.local/bin:$PATH"
-alias z="zoxide"
+eval "$(zoxide init zsh)"
