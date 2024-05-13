@@ -5,7 +5,7 @@ sudo pacman -Syu --noconfirm fzf helm kubectl zsh cmake ccls jq yq musl neovim
 sudo pacman -Syu --noconfirm ripgrep htop curl wget git vim docker openssh bridge-utils pass avahi llvm
 sudo pacman -Syu --noconfirm tmate clang linux-tools gnu-netcat tmate aarch64-linux-gnu-gcc brightnessctl bat neomutt kitty aspell-uk aspell-en aspell-de yubikey-manager yubico-pam freerdp simple-scan docker-compose
 sudo pacman -Syu --noconfirm vlc chromium ttf-font-awesome awesome-terminal-fonts otf-font-awesome adapta-gtk-theme papirus-icon-theme go dnsmasq openssh extra/noto-fonts extra/noto-fonts-emoji tmux terraform
-sudo pacman -Syu --noconfirm fzf alacritty codium signal-desktop
+sudo pacman -Syu --noconfirm fzf alacritty codium signal-desktop keepassxc syncthing
 
 sudo usermod -aG docker $(whoami)
 sudo systemctl enable docker
@@ -36,13 +36,12 @@ cargo install --locked gitlab-report
 
 sudo pacman -Syu --noconfirm rust-analyzer
 
-git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.config/zsh/ohmyzsh/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git  $HOME/.config/zsh/ohmyzsh/plugins/zsh-syntax-highlighting
-git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git  $HOME/.config/zsh/ohmyzsh/plugins/fast-syntax-highlighting
-git clone https://github.com/marlonrichert/zsh-autocomplete.git  $HOME/.config/zsh/ohmyzsh/plugins/zsh-autocomplete
 
 curl https://pyenv.run | bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-
+git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.config/zsh/ohmyzsh/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git  $HOME/.config/zsh/ohmyzsh/plugins/zsh-syntax-highlighting
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git  $HOME/.config/zsh/ohmyzsh/plugins/fast-syntax-highlighting
+git clone https://github.com/marlonrichert/zsh-autocomplete.git  $HOME/.config/zsh/ohmyzsh/plugins/zsh-autocomplete
