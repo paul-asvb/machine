@@ -39,6 +39,7 @@ esac
 # zoxide
 export PATH="$HOME/.local/bin:$PATH"
 eval "$(zoxide init zsh)"
+alias z="zoxide"
 
 # cargo
 export PATH="$HOME/.cargo/bin:$PATH"
