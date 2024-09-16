@@ -1,12 +1,13 @@
-
 export ZSH="$HOME/.config/zsh/ohmyzsh"
 
 ZSH_THEME="agnoster"
 
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git aws bun colorize deno direnv docker frontend-search jsontools kubectx kubectl node rust rsync npm nvm yarn zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete zsh-interactive-cd)
+plugins=(git aws bun colorize deno direnv docker kubectl node rust nvm yarn zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete)
 
 source $ZSH/oh-my-zsh.sh
+
+# add bin to path
+export PATH="$HOME/.local/bin:$PATH"
 
 # EDITOR
 if [[ -n $SSH_CONNECTION ]]; then
@@ -37,7 +38,6 @@ case ":$PATH:" in
 esac
 
 # zoxide
-export PATH="$HOME/.local/bin:$PATH"
 eval "$(zoxide init zsh)"
 alias z="zoxide"
 
