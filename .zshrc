@@ -37,8 +37,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-
-
 # cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 
