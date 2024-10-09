@@ -37,10 +37,12 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-# zoxide
-eval "$(zoxide init zsh)"
-alias z="zoxide"
+
 
 # cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# zoxide
+export PATH="$HOME/.local/bin:$PATH"
+eval "$(zoxide init zsh)"
+alias z="zoxide"
