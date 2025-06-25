@@ -3,8 +3,10 @@ sudo pacman -Syu --noconfirm yay base base-devel protobuf unzip lld lcov
 sudo pacman -Syu --noconfirm postgresql-libs aws-cli typescript zoxide
 sudo pacman -Syu --noconfirm fzf helm kubectl zsh cmake ccls jq yq musl neovim 
 sudo pacman -Syu --noconfirm ripgrep htop curl wget git vim docker openssh bridge-utils pass avahi llvm
-sudo pacman -Syu --noconfirm tmate clang linux-tools gnu-netcat tmate aarch64-linux-gnu-gcc brightnessctl bat neomutt kitty aspell-uk aspell-en aspell-de yubikey-manager yubico-pam freerdp simple-scan docker-compose
-sudo pacman -Syu --noconfirm vlc chromium ttf-font-awesome awesome-terminal-fonts otf-font-awesome adapta-gtk-theme papirus-icon-theme go dnsmasq openssh extra/noto-fonts extra/noto-fonts-emoji tmux terraform
+sudo pacman -Syu --noconfirm tmate clang linux-tools gnu-netcat tmate aarch64-linux-gnu-gcc brightnessctl
+sudo pacman -Syu --noconfirm bat neomutt kitty aspell-uk aspell-en aspell-de yubikey-manager yubico-pam freerdp simple-scan docker-compose
+sudo pacman -Syu --noconfirm vlc chromium ttf-font-awesome awesome-terminal-fonts otf-font-awesome adapta-gtk-theme 
+sudo pacman -Syu --noconfirm papirus-icon-theme go dnsmasq openssh extra/noto-fonts extra/noto-fonts-emoji tmux terraform
 sudo pacman -Syu --noconfirm fzf alacritty codium signal-desktop keepassxc syncthing obsidian
 
 sudo usermod -aG docker $(whoami)
@@ -33,7 +35,7 @@ cargo install cargo-about
 cargo install cargo-license
 cargo install --locked trunk
 cargo install --locked gitlab-report
-
+# after cargo needs rust deps
 sudo pacman -Syu --noconfirm rust-analyzer
 
 
