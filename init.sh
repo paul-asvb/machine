@@ -1,5 +1,5 @@
 
-sudo pacman -Syu --noconfirm yay base base-devel protobuf unzip lld lcov direnv
+sudo pacman -Syu --noconfirm yay base base-devel protobuf unzip lld lcov direnv zoxide
 sudo pacman -Syu --noconfirm postgresql-libs aws-cli typescript
 sudo pacman -Syu --noconfirm fzf helm kubectl zsh cmake ccls jq yq musl neovim 
 sudo pacman -Syu --noconfirm ripgrep htop curl wget git vim docker openssh bridge-utils pass avahi llvm
