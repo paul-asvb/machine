@@ -34,3 +34,7 @@ esac
 
 # cargo
 export PATH="$HOME/.cargo/bin:$PATH"
+
+
+# zoxide
+export PATH="$HOME/.local/bin:$PATH"
