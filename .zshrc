@@ -38,3 +38,4 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # zoxide
 export PATH="$HOME/.local/bin:$PATH"
+eval "$(zoxide init zsh)"
