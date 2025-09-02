@@ -33,6 +33,7 @@ cargo install sqlx-cli --no-default-features --features native-tls,postgres
 cargo install cargo-nextest --version 0.9.39
 cargo install cargo-about
 cargo install cargo-license
+cargo install cargo-watch
 cargo install --locked trunk
 cargo install --locked gitlab-report
 # after cargo needs rust deps
