@@ -8,3 +8,11 @@ curl https://raw.githubusercontent.com/paul-asvb/machine/main/.zshrc -o $HOME/.c
 curl https://raw.githubusercontent.com/paul-asvb/machine/main/syncthing.sh -o  /home/$USER/syncthing.sh
 
 ```
+
+## Hyprland (alternative to sway, tiling via [hy3](https://github.com/outfoxxed/hy3))
+
+```bash
+curl https://raw.githubusercontent.com/paul-asvb/machine/main/hypr-init.sh | sh
+curl https://raw.githubusercontent.com/paul-asvb/machine/main/hyprland.conf -o $HOME/.config/hypr/hyprland.conf
+curl https://raw.githubusercontent.com/paul-asvb/machine/main/hypridle.conf -o $HOME/.config/hypr/hypridle.conf
+```
