@@ -5,3 +5,18 @@
  * colors.css is auto-managed by the theme switcher.
  * To override the system style, add rules here instead of editing the
  * system template at /usr/share/sway/templates/waybar/style.css */
+
+/* Highlight the active session/workspace.
+ * The system template styles sway's `.focused` class, but hyprland/workspaces
+ * marks the current workspace with `.active`, so we replicate the look here. */
+#workspaces button.active {
+    color: @theme_bg_color;
+    background-color: @theme_selected_bg_color;
+    border-color: @theme_selected_bg_color;
+    font-weight: bold;
+}
+
+/* Dim workspaces with no windows so the active one stands out more. */
+#workspaces button.empty {
+    opacity: 0.5;
+}
