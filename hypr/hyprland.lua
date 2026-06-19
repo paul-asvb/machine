@@ -275,13 +275,20 @@ hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P",         hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | swappy -f -"))           -- select region, edit
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("grim - | swappy -f -"))                          -- full screen, edit
 hl.bind(mainMod .. " + CTRL + P",  hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | wl-copy"))               -- select region, copy to clipboard
-hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
+hl.bind(mainMod .. " + T", hl.dsp.layout("togglesplit"))    -- dwindle only (moved off J to free it for focus)
 
--- Move focus with mainMod + arrow keys
-hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
+-- Move focus / select windows with mainMod + j k l ö (vim-style, shifted one key right)
+-- j = left, k = down, l = up, ö = right
+hl.bind(mainMod .. " + j",          hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + k",          hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + l",          hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + odiaeresis", hl.dsp.focus({ direction = "right" }))
+
+-- Move the active window with mainMod + SHIFT + j k l ö
+hl.bind(mainMod .. " + SHIFT + j",          hl.dsp.window.move({ direction = "left" }))
+hl.bind(mainMod .. " + SHIFT + k",          hl.dsp.window.move({ direction = "down" }))
+hl.bind(mainMod .. " + SHIFT + l",          hl.dsp.window.move({ direction = "up" }))
+hl.bind(mainMod .. " + SHIFT + odiaeresis", hl.dsp.window.move({ direction = "right" }))
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
