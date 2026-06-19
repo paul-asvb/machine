@@ -277,18 +277,18 @@ hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("grim - | swappy -f -"))     
 hl.bind(mainMod .. " + CTRL + P",  hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | wl-copy"))               -- select region, copy to clipboard
 hl.bind(mainMod .. " + T", hl.dsp.layout("togglesplit"))    -- dwindle only (moved off J to free it for focus)
 
--- Move focus / select windows with mainMod + j k l ö (vim-style, shifted one key right)
--- j = left, k = down, l = up, ö = right
-hl.bind(mainMod .. " + j",          hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + k",          hl.dsp.focus({ direction = "down" }))
-hl.bind(mainMod .. " + l",          hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + odiaeresis", hl.dsp.focus({ direction = "right" }))
+-- Move focus / select windows with mainMod + h j k l (vim-style)
+-- h = left, j = down, k = up, l = right
+hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + j", hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + k", hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
 
--- Move the active window with mainMod + SHIFT + j k l ö
-hl.bind(mainMod .. " + SHIFT + j",          hl.dsp.window.move({ direction = "left" }))
-hl.bind(mainMod .. " + SHIFT + k",          hl.dsp.window.move({ direction = "down" }))
-hl.bind(mainMod .. " + SHIFT + l",          hl.dsp.window.move({ direction = "up" }))
-hl.bind(mainMod .. " + SHIFT + odiaeresis", hl.dsp.window.move({ direction = "right" }))
+-- Move the active window with mainMod + SHIFT + h j k l
+hl.bind(mainMod .. " + SHIFT + h", hl.dsp.window.move({ direction = "left" }))
+hl.bind(mainMod .. " + SHIFT + j", hl.dsp.window.move({ direction = "down" }))
+hl.bind(mainMod .. " + SHIFT + k", hl.dsp.window.move({ direction = "up" }))
+hl.bind(mainMod .. " + SHIFT + l", hl.dsp.window.move({ direction = "right" }))
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
