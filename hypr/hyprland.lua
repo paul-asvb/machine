@@ -31,6 +31,14 @@ hl.monitor({
     scale    = "auto",
 })
 
+-- Pin workspaces to monitors: 1 & 2 on screen 1 (HDMI-A-1), the rest on screen 2 (HDMI-A-2)
+-- See https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
+hl.workspace_rule({ workspace = "1", monitor = "HDMI-A-1" })
+hl.workspace_rule({ workspace = "2", monitor = "HDMI-A-1" })
+for i = 3, 10 do
+    hl.workspace_rule({ workspace = tostring(i), monitor = "HDMI-A-2" })
+end
+
 
 ---------------------
 ---- MY PROGRAMS ----
