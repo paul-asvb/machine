@@ -308,6 +308,16 @@ end
 
 -- Stack/group the active window (like a tabbed container)
 hl.bind(mainMod .. " + S", hl.dsp.group.toggle())
+-- Switch the active (visible) window within the stack
+hl.bind(mainMod .. " + Tab",         hl.dsp.group.next())
+hl.bind(mainMod .. " + SHIFT + Tab", hl.dsp.group.prev())
+-- Move the active window INTO an adjacent stack (the direction of the group)
+hl.bind(mainMod .. " + CTRL + h", hl.dsp.window.move({ into_group = "l" }))
+hl.bind(mainMod .. " + CTRL + j", hl.dsp.window.move({ into_group = "d" }))
+hl.bind(mainMod .. " + CTRL + k", hl.dsp.window.move({ into_group = "u" }))
+hl.bind(mainMod .. " + CTRL + l", hl.dsp.window.move({ into_group = "r" }))
+-- Move the active window OUT of the stack
+hl.bind(mainMod .. " + CTRL + o", hl.dsp.window.move({ out_of_group = true }))
 
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + A",         hl.dsp.workspace.toggle_special("magic"))
