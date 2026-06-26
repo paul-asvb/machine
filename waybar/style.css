@@ -20,3 +20,8 @@
 #workspaces button.empty {
     opacity: 0.5;
 }
+
+/* Add some breathing room to the left of the open window title. */
+#window {
+    padding-left: 12px;
+}
