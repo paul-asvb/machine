@@ -17,11 +17,11 @@
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 -- transform: 0=normal, 1=90°, 2=180°, 3=270° (4-7 = flipped variants)
 hl.monitor({
-    output    = "HDMI-A-1",
+    output    = "DP-2",
     mode      = "preferred",
     position  = "auto",
     scale     = 1.5,
-    transform = 1,
+    transform = 0,
 })
 -- Fallback rule for any other monitor
 hl.monitor({
@@ -31,12 +31,12 @@ hl.monitor({
     scale    = "auto",
 })
 
--- Pin workspaces to monitors: 1 & 2 on screen 1 (HDMI-A-1), the rest on screen 2 (HDMI-A-2)
+-- Pin workspaces to monitors: 1 & 2 on screen 1 (DP-2), the rest on screen 2 (DP-3)
 -- See https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
-hl.workspace_rule({ workspace = "1", monitor = "HDMI-A-1" })
-hl.workspace_rule({ workspace = "2", monitor = "HDMI-A-1" })
+hl.workspace_rule({ workspace = "1", monitor = "DP-2" })
+hl.workspace_rule({ workspace = "2", monitor = "DP-2" })
 for i = 3, 10 do
-    hl.workspace_rule({ workspace = tostring(i), monitor = "HDMI-A-2" })
+    hl.workspace_rule({ workspace = tostring(i), monitor = "DP-3" })
 end
 
 
@@ -277,6 +277,7 @@ local closeWindowBind = hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.close()
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("~/.config/hypr/scripts/powermenu.sh"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
 -- Screenshots (grim + slurp + swappy editor, wl-copy to clipboard)
