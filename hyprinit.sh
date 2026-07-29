@@ -27,7 +27,7 @@ sudo pacman -Syu --needed --noconfirm \
 
 # --- Bar, launcher, terminal, file manager ----------------------------------
 sudo pacman -S --needed --noconfirm \
-	waybar alacritty dolphin
+	waybar alacritty thunar
 
 # hyprlauncher (menu = "hyprlauncher" in hyprland.lua) lives in the AUR.
 $AUR hyprlauncher
