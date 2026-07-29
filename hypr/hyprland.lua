@@ -14,10 +14,14 @@
 ---- MONITORS ----
 ------------------
 
+-- Names as reported by `hyprctl monitors`
+local monitorLeft  = "DP-2"
+local monitorRight = "DP-3"
+
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 -- transform: 0=normal, 1=90°, 2=180°, 3=270° (4-7 = flipped variants)
 hl.monitor({
-    output    = "DP-2",
+    output    = monitorLeft,
     mode      = "preferred",
     position  = "auto",
     scale     = 1.5,
@@ -31,12 +35,12 @@ hl.monitor({
     scale    = "auto",
 })
 
--- Pin workspaces to monitors: 1 & 2 on screen 1 (DP-2), the rest on screen 2 (DP-3)
+-- Pin workspaces to monitors: 1 & 2 on the left screen, the rest on the right screen
 -- See https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
-hl.workspace_rule({ workspace = "1", monitor = "DP-2" })
-hl.workspace_rule({ workspace = "2", monitor = "DP-2" })
+hl.workspace_rule({ workspace = "1", monitor = monitorLeft })
+hl.workspace_rule({ workspace = "2", monitor = monitorLeft })
 for i = 3, 10 do
-    hl.workspace_rule({ workspace = tostring(i), monitor = "DP-3" })
+    hl.workspace_rule({ workspace = tostring(i), monitor = monitorRight })
 end
 
 
