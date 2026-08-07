@@ -41,7 +41,7 @@ copy_dir waybar
 # reload alone won't pick up wallpaper changes. Restart it here instead.
 if command -v hyprctl >/dev/null 2>&1 && hyprctl monitors >/dev/null 2>&1; then
   pkill -x hyprpaper 2>/dev/null || true
-  hyprctl dispatch exec hyprpaper
+  hyprctl dispatch 'hl.dsp.exec_cmd("hyprpaper")'
   echo "restarted hyprpaper"
 fi
 
