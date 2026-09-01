@@ -88,7 +88,7 @@
         "tooltip-format": "{ifname}: {ipaddr}",
         "tooltip-format-wifi": "{ifname} ({essid}): {ipaddr}",
         "tooltip-format-disconnected": "disconnected",
-        "on-click": "alacritty -e nmtui"
+        "on-click": "nm-connection-editor"
     },
 
     "pulseaudio": {

@@ -46,7 +46,7 @@ sudo pacman -S --needed --noconfirm \
 # --- Hardware / media keys --------------------------------------------------
 # brightnessctl : XF86MonBrightness binds
 # playerctl     : XF86Audio{Next,Prev,Play,Pause} binds
-# network-manager-applet : nm-applet --indicator (autostart) + nmtui on bar
+# network-manager-applet : provides nm-connection-editor (waybar network click)
 sudo pacman -S --needed --noconfirm \
 	brightnessctl playerctl networkmanager network-manager-applet
 
