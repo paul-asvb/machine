@@ -18,6 +18,8 @@ local monitorLeft = machine.monitorLeft
 local monitorRight = machine.monitorRight
 local dualMonitor = machine.dualMonitor
 local flipLeftMonitor = machine.flipLeftMonitor
+-- Fall back to 1 for machine files generated before the scale prompt existed.
+local monitorScale = machine.monitorScale or 1
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 -- transform: 0=normal, 1=90°, 2=180°, 3=270° (4-7 = flipped variants)
@@ -25,7 +27,7 @@ hl.monitor({
 	output = monitorLeft,
 	mode = "preferred",
 	position = "auto",
-	scale = 1,
+	scale = monitorScale,
 	transform = (dualMonitor and flipLeftMonitor) and 1 or 0,
 })
 if dualMonitor then
@@ -33,7 +35,7 @@ if dualMonitor then
 		output = monitorRight,
 		mode = "preferred",
 		position = "auto",
-		scale = 1,
+		scale = monitorScale,
 	})
 end
 -- Fallback rule for any other monitor
