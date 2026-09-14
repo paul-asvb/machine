@@ -20,6 +20,9 @@ local dualMonitor = machine.dualMonitor
 local flipLeftMonitor = machine.flipLeftMonitor
 -- Fall back to 1 for machine files generated before the scale prompt existed.
 local monitorScale = machine.monitorScale or 1
+-- "horizontal" (monitorRight right of monitorLeft) or "vertical" (monitorRight
+-- below monitorLeft). Falls back to horizontal for older machine files.
+local monitorLayout = machine.monitorLayout or "horizontal"
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 -- transform: 0=normal, 1=90°, 2=180°, 3=270° (4-7 = flipped variants)
@@ -34,7 +37,7 @@ if dualMonitor then
 	hl.monitor({
 		output = monitorRight,
 		mode = "preferred",
-		position = "auto",
+		position = monitorLayout == "vertical" and "auto-down" or "auto",
 		scale = monitorScale,
 	})
 end
@@ -46,10 +49,13 @@ hl.monitor({
 	scale = "auto",
 })
 
--- Pin workspaces to monitors: on dual-monitor setups, 1 & 2 on the left screen and the
--- rest on the right screen; on single-monitor setups, everything goes on monitorLeft.
+-- Pin workspaces to monitors: on horizontal dual-monitor setups, 1 & 2 on the left screen
+-- and the rest on the right screen; on single-monitor setups, everything goes on monitorLeft.
+-- Vertical dual-monitor setups leave workspaces unpinned.
 -- See https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
-if dualMonitor then
+if dualMonitor and monitorLayout == "vertical" then
+	-- no workspace rules
+elseif dualMonitor then
 	hl.workspace_rule({ workspace = "1", monitor = monitorLeft })
 	hl.workspace_rule({ workspace = "2", monitor = monitorLeft })
 	for i = 3, 10 do

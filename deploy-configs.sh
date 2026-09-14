@@ -83,22 +83,37 @@ configure_monitors() {
     echo "  (could not auto-detect monitors — is Hyprland running? enter names manually)"
   fi
 
-  local monitor_left monitor_right dual_answer flip_answer scale_answer
-  monitor_left="$(pick_monitor "Left monitor")"
+  local monitor_left monitor_right dual_answer layout_answer flip_answer scale_answer
   read -rp "Dual monitor setup? [y/N] " dual_answer
 
   local dual_monitor="false"
   local flip_left="false"
+  # monitorLeft/monitorRight hold the first/second monitor; in the vertical
+  # layout they are the top/bottom monitor instead.
+  local monitor_layout="horizontal"
   monitor_right=""
 
   case "$dual_answer" in
     [Yy]*)
       dual_monitor="true"
-      monitor_right="$(pick_monitor "Right monitor")"
-      read -rp "Flip/rotate the left monitor 90°? [y/N] " flip_answer
+      read -rp "Arrange monitors [h]orizontally (left/right) or [v]ertically (top/bottom)? [H/v] " layout_answer
+      local first_label="left" second_label="right"
+      case "$layout_answer" in
+        [Vv]*)
+          monitor_layout="vertical"
+          first_label="top"
+          second_label="bottom"
+          ;;
+      esac
+      monitor_left="$(pick_monitor "${first_label^} monitor")"
+      monitor_right="$(pick_monitor "${second_label^} monitor")"
+      read -rp "Flip/rotate the $first_label monitor 90°? [y/N] " flip_answer
       case "$flip_answer" in
         [Yy]*) flip_left="true" ;;
       esac
+      ;;
+    *)
+      monitor_left="$(pick_monitor "Monitor")"
       ;;
   esac
 
@@ -115,6 +130,7 @@ return {
 	monitorLeft = "$monitor_left",
 	monitorRight = "$monitor_right",
 	dualMonitor = $dual_monitor,
+	monitorLayout = "$monitor_layout",
 	flipLeftMonitor = $flip_left,
 	monitorScale = $monitor_scale,
 }
@@ -129,10 +145,13 @@ copy_file "alacritty.toml" "$CONFIG/alacritty/alacritty.toml"
 copy_dir hypr
 copy_dir waybar
 
-# hyprpaper only reads its config at its own startup, and hyprland.lua only
-# (re)launches it on the compositor's "hyprland.start" event, so a config
-# reload alone won't pick up wallpaper changes. Restart it here instead.
 if command -v hyprctl >/dev/null 2>&1 && hyprctl monitors >/dev/null 2>&1; then
+  # Apply the freshly copied config (monitor layout, scale, etc.).  hyprctl reload
+  echo "reloaded hyprland config"
+
+  # hyprpaper only reads its config at its own startup, and hyprland.lua only
+  # (re)launches it on the compositor's "hyprland.start" event, so a config
+  # reload alone won't pick up wallpaper changes. Restart it here instead.
   pkill -x hyprpaper 2>/dev/null || true
   hyprctl dispatch 'hl.dsp.exec_cmd("hyprpaper")'
   echo "restarted hyprpaper"
