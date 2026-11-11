@@ -39,3 +39,19 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # zoxide
 export PATH="$HOME/.local/bin:$PATH"
 eval "$(zoxide init zsh)"
+
+check_kernel ()
+{
+    local running=$(uname -r);
+    local on_disk=$(pacman -Q linux | awk '{print $2}');
+    local running_clean=$(echo "$running" | sed 's/-/./');
+    echo -e "Running: $running";
+    echo -e "On Disk: $on_disk";
+    if [[ "$on_disk" == "$running_clean" ]]; then
+        echo -e "\e[32m✔ Kernel is up to date.\e[0m";
+    else
+        echo -e "\e[31m✘ Reboot required!\e[0m";
+    fi
+}
+
+check_kernel();
